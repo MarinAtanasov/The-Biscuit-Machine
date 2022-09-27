@@ -1,17 +1,17 @@
-﻿using AppBrix.Container;
-using AppBrix.Events;
+﻿using AppBrix.Events.Schedule.Timer;
 using AppBrix.Lifecycle;
 using AppBrix.Modules;
-using Conveyor.Impl;
+using Conveyor;
+using Motor.Impl;
 using System;
 using System.Collections.Generic;
 
-namespace Conveyor;
+namespace Motor;
 
 /// <summary>
-/// Module used for working with a conveyor.
+/// Module used for working with a conveyor belt motor.
 /// </summary>
-public class ConveyorModule : ModuleBase
+public class MotorModule : ModuleBase
 {
     #region Properties
     /// <summary>
@@ -20,7 +20,8 @@ public class ConveyorModule : ModuleBase
     /// </summary>
     public override IEnumerable<Type> Dependencies => new[]
     {
-        typeof(EventsModule)
+        typeof(ConveyorModule),
+        typeof(TimerScheduledEventsModule)
     };
     #endregion
 
@@ -33,8 +34,8 @@ public class ConveyorModule : ModuleBase
     protected override void Initialize(IInitializeContext context)
     {
         this.App.Container.Register(this);
-        this.conveyor.Initialize(context);
-        this.App.Container.Register(this.conveyor);
+        this.motor.Initialize(context);
+        this.App.Container.Register(this.motor);
     }
 
     /// <summary>
@@ -43,11 +44,11 @@ public class ConveyorModule : ModuleBase
     /// </summary>
     protected override void Uninitialize()
     {
-        this.conveyor.Uninitialize();
+        this.motor.Uninitialize();
     }
     #endregion
 
     #region Private fields and constants
-    private readonly DefaultConveyor conveyor = new DefaultConveyor();
+    private readonly DefaultMotor motor = new DefaultMotor();
     #endregion
 }

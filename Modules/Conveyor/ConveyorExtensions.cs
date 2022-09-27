@@ -10,10 +10,10 @@ namespace AppBrix;
 public static class ConveyorExtensions
 {
     /// <summary>
-    /// Gets the currently registered conveyor.
+    /// Gets the currently registered <see cref="IConveyor"/>.
     /// </summary>
     /// <param name="app">The currently running application.</param>
-    /// <returns>The conveyor.</returns>
+    /// <returns>The <see cref="IConveyor"/>.</returns>
     public static IConveyor GetConveyor(this IApp app) => (IConveyor)app.Get(typeof(IConveyor));
 
     /// <summary>

@@ -1,7 +1,7 @@
 using AppBrix;
+using AppBrix.Configuration;
 using AppBrix.Configuration.Memory;
 using BiscuitMachine.Testing;
-using Conveyor.Configuration;
 using Conveyor.Events;
 using Conveyor.Services;
 using FluentAssertions;
@@ -13,14 +13,12 @@ namespace Conveyor.Tests;
 public class ConveyorTests : IDisposable
 {
     #region Setup and cleanup
-    public ConveyorTests()
-    {
-        this.app = App.Start<TestMainModule<ConveyorModule>>(new MemoryConfigService());
-    }
+    public ConveyorTests() => this.app = App.Start<TestMainModule<ConveyorModule>>(new MemoryConfigService());
 
     public void Dispose() => this.app.Stop();
     #endregion
 
+    #region Tests
     [Fact]
     public void TestGetConveyor()
     {
@@ -35,7 +33,7 @@ public class ConveyorTests : IDisposable
     [Fact]
     public void TestGetConveyorConfig()
     {
-        ConveyorConfig config = null;
+        IConfig config = null;
 
         var action = () => config = this.app.ConfigService.GetConveyorConfig();
 
@@ -92,6 +90,7 @@ public class ConveyorTests : IDisposable
 
         cookieReady.Should().BeTrue("the cookie should have reached the end of the conveyor");
     }
+    #endregion
 
     #region Private fields and constants
     private readonly IApp app;
