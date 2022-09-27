@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <AssemblyName>BiscuitMachine.Motor.Tests</AssemblyName>
+        <AssemblyTitle>BiscuitMachine.Motor.Tests</AssemblyTitle>
+        <Description>Contains tests for the Motor module.</Description>
+        <GenerateDocumentationFile>false</GenerateDocumentationFile>
+        <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+        <IsPackable>false</IsPackable>
+        <IsTestProject>true</IsTestProject>
+        <Nullable>disable</Nullable>
+        <PackageId>BiscuitMachine.Motor.Tests</PackageId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\Modules\BiscuitMachine.Testing\BiscuitMachine.Testing.csproj" />
+        <ProjectReference Include="..\..\Modules\BiscuitMachine.Motor\BiscuitMachine.Motor.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.0" />
+    </ItemGroup>
+
+</Project>

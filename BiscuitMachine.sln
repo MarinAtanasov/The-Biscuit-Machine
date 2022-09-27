@@ -15,15 +15,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{9F16
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{399F0F53-2C69-4F44-BB4D-720A0DDA3BF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conveyor", "Modules\Conveyor\Conveyor.csproj", "{80432740-4C8E-41A0-9B8B-18B8BCBC7B8A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiscuitMachine.Conveyor", "Modules\BiscuitMachine.Conveyor\BiscuitMachine.Conveyor.csproj", "{80432740-4C8E-41A0-9B8B-18B8BCBC7B8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conveyor.Tests", "Tests\Conveyor.Tests\Conveyor.Tests.csproj", "{186D65FF-722F-43BD-92E7-5375BD8DC35D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiscuitMachine.Conveyor.Tests", "Tests\BiscuitMachine.Conveyor.Tests\BiscuitMachine.Conveyor.Tests.csproj", "{186D65FF-722F-43BD-92E7-5375BD8DC35D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiscuitMachine.Testing", "Modules\BiscuitMachine.Testing\BiscuitMachine.Testing.csproj", "{33966016-32EF-46EF-AF43-ECBEAA1CA1CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Motor", "Modules\Motor\Motor.csproj", "{25EFF540-FED5-4D79-BB38-6F076C123A27}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiscuitMachine.Motor", "Modules\BiscuitMachine.Motor\BiscuitMachine.Motor.csproj", "{25EFF540-FED5-4D79-BB38-6F076C123A27}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Motor.Tests", "Tests\Motor.Tests\Motor.Tests.csproj", "{6345502F-EC78-4FC8-B79F-F9ACCBC2EA71}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiscuitMachine.Motor.Tests", "Tests\BiscuitMachine.Motor.Tests\BiscuitMachine.Motor.Tests.csproj", "{6345502F-EC78-4FC8-B79F-F9ACCBC2EA71}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

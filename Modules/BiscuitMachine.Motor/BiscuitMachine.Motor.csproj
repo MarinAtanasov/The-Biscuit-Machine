@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <AssemblyName>BiscuitMachine.Motor</AssemblyName>
+        <AssemblyTitle>BiscuitMachine.Motor</AssemblyTitle>
+        <Description>Module used for working with a conveyor belt motor.</Description>
+        <PackageId>BiscuitMachine.Motor</PackageId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\BiscuitMachine.Conveyor\BiscuitMachine.Conveyor.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AppBrix.Events.Schedule.Timer" Version="0.34.0" />
+    </ItemGroup>
+
+</Project>
