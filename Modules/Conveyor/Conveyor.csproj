@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <AssemblyName>Conveyor</AssemblyName>
+        <AssemblyTitle>Conveyor</AssemblyTitle>
+        <Description>Module used for working with a conveyor.</Description>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="AppBrix.Container" Version="0.34.0" />
+      <PackageReference Include="AppBrix.Events" Version="0.34.0" />
+    </ItemGroup>
+
+</Project>
