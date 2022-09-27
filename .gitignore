@@ -348,3 +348,14 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+# Lock files
+*/**/project.lock.json
+
+# IntelliJ IDEA and Project Rider
+*.sln.iml
+.idea/
+.idea.*/
+
+# Mac / OSX / MacOS
+.DS_Store
