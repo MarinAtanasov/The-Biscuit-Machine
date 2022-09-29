@@ -84,11 +84,19 @@ public class MotorTests : IDisposable
     [Fact]
     public void TestMotorExecuteRevolutionOnState()
     {
+        this.app.ConfigService.GetConveyorConfig().ConveyorLength = 1;
+        this.app.Reinitialize();
+        var conveyor = this.app.GetConveyor();
         var motor = this.app.GetMotor();
         var pulseCalled = false;
-        this.app.GetEventHub().Subscribe<PulseEvent>(_ => pulseCalled = true);
+        this.app.GetEventHub().Subscribe<PulseEvent>(_ =>
+        {
+            pulseCalled = true;
+            conveyor.HasBiscuits.Should().BeFalse("the cookie should have been pushed out of the conveyor");
+        });
         motor.TurnOn();
         
+        conveyor.AddBiscuit();
         motor.ExecuteRevolution();
 
         pulseCalled.Should().Be(true, "pulse should be called when the motor is on");
@@ -115,7 +123,7 @@ public class MotorTests : IDisposable
     {
         this.app.ConfigService.GetScheduledEventsConfig().ExecutionCheck = TimeSpan.FromMilliseconds(1);
         this.app.ConfigService.GetMotorConfig().PulseDelay = TimeSpan.FromMilliseconds(1);
-        this.app.Restart();
+        this.app.Reinitialize();
 
         var motor = this.app.GetMotor();
         var pulseCalled = 0;

@@ -33,6 +33,7 @@ internal sealed class DefaultMotor : IApplicationLifecycle, IMotor
     {
         if (this.State == MotorState.On)
         {
+            this.app.GetConveyor().Move();
             this.app.GetEventHub().Raise(new PulseEvent());
         }
     }
