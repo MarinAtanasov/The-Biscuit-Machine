@@ -25,6 +25,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiscuitMachine.Motor", "Mod
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiscuitMachine.Motor.Tests", "Tests\BiscuitMachine.Motor.Tests\BiscuitMachine.Motor.Tests.csproj", "{6345502F-EC78-4FC8-B79F-F9ACCBC2EA71}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiscuitMachine.Extruder", "Modules\BiscuitMachine.Extruder\BiscuitMachine.Extruder.csproj", "{3F83C0C1-1286-4169-AC6B-DA6286F8D520}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiscuitMachine.Extruder.Tests", "Tests\BiscuitMachine.Extruder.Tests\BiscuitMachine.Extruder.Tests.csproj", "{B4AC6B42-A820-43BD-B8D6-B2412303A366}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +40,8 @@ Global
 		{33966016-32EF-46EF-AF43-ECBEAA1CA1CC} = {9F166466-33F5-4860-A225-F55A78618383}
 		{25EFF540-FED5-4D79-BB38-6F076C123A27} = {9F166466-33F5-4860-A225-F55A78618383}
 		{6345502F-EC78-4FC8-B79F-F9ACCBC2EA71} = {399F0F53-2C69-4F44-BB4D-720A0DDA3BF2}
+		{3F83C0C1-1286-4169-AC6B-DA6286F8D520} = {9F166466-33F5-4860-A225-F55A78618383}
+		{B4AC6B42-A820-43BD-B8D6-B2412303A366} = {399F0F53-2C69-4F44-BB4D-720A0DDA3BF2}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{80432740-4C8E-41A0-9B8B-18B8BCBC7B8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -58,5 +64,13 @@ Global
 		{6345502F-EC78-4FC8-B79F-F9ACCBC2EA71}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6345502F-EC78-4FC8-B79F-F9ACCBC2EA71}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6345502F-EC78-4FC8-B79F-F9ACCBC2EA71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F83C0C1-1286-4169-AC6B-DA6286F8D520}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F83C0C1-1286-4169-AC6B-DA6286F8D520}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F83C0C1-1286-4169-AC6B-DA6286F8D520}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F83C0C1-1286-4169-AC6B-DA6286F8D520}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4AC6B42-A820-43BD-B8D6-B2412303A366}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4AC6B42-A820-43BD-B8D6-B2412303A366}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4AC6B42-A820-43BD-B8D6-B2412303A366}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4AC6B42-A820-43BD-B8D6-B2412303A366}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
