@@ -13,6 +13,7 @@ internal sealed class DefaultMotor : IApplicationLifecycle, IMotor
     public void Initialize(IInitializeContext context)
     {
         this.app = context.App;
+        this.State = MotorState.Off;
         this.app.GetEventHub().Subscribe<MotorTimerEvent>(this.MotorTimerEvent);
     }
 
@@ -20,6 +21,7 @@ internal sealed class DefaultMotor : IApplicationLifecycle, IMotor
     {
         this.UnscheduleTimerEvent();
         this.app.GetEventHub().Unsubscribe<MotorTimerEvent>(this.MotorTimerEvent);
+        this.State = MotorState.Off;
         this.app = null;
     }
     #endregion

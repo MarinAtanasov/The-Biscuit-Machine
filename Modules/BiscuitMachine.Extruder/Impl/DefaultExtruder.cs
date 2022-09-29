@@ -12,12 +12,14 @@ internal sealed class DefaultExtruder : IApplicationLifecycle, IExtruder
     public void Initialize(IInitializeContext context)
     {
         this.app = context.App;
+        this.State = ExtruderState.Off;
         this.app.GetEventHub().Subscribe<PulseEvent>(this.PulseEvent);
     }
 
     public void Uninitialize()
     {
         this.app.GetEventHub().Unsubscribe<PulseEvent>(this.PulseEvent);
+        this.State = ExtruderState.Off;
         this.app = null;
     }
     #endregion

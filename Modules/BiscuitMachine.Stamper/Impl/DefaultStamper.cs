@@ -8,29 +8,25 @@ namespace BiscuitMachine.Stamper.Impl;
 
 internal sealed class DefaultStamper : IApplicationLifecycle, IStamper
 {
-    #region Construction
-    public DefaultStamper(int index)
-    {
-        this.Index = index;
-    }
-    #endregion
-
     #region IApplicationLifecycle implementation
     public void Initialize(IInitializeContext context)
     {
         this.app = context.App;
+        this.Index = this.app.ConfigService.GetStamperConfig().Index;
+        this.State = StamperState.Off;
         this.app.GetEventHub().Subscribe<PulseEvent>(this.PulseEvent);
     }
 
     public void Uninitialize()
     {
         this.app.GetEventHub().Unsubscribe<PulseEvent>(this.PulseEvent);
+        this.State = StamperState.Off;
         this.app = null;
     }
     #endregion
 
     #region Properties
-    public int Index { get; }
+    public int Index { get; private set; }
 
     public StamperState State { get; private set; }
     #endregion

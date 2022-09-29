@@ -35,7 +35,6 @@ public class StamperModule : ModuleBase
     {
         this.App.Container.Register(this);
 
-        this.stamper = new DefaultStamper(this.App.ConfigService.GetStamperConfig().Index);
         this.stamper.Initialize(context);
         this.App.Container.Register(this.stamper);
     }
@@ -46,12 +45,11 @@ public class StamperModule : ModuleBase
     /// </summary>
     protected override void Uninitialize()
     {
-        this.stamper?.Uninitialize();
-        this.stamper = null;
+        this.stamper.Uninitialize();
     }
     #endregion
 
     #region Private fields and constants
-    private DefaultStamper? stamper;
+    private DefaultStamper stamper = new DefaultStamper();
     #endregion
 }
