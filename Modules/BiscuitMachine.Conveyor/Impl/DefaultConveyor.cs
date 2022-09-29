@@ -24,27 +24,27 @@ internal sealed class DefaultConveyor : IApplicationLifecycle, IConveyor
     #endregion
 
     #region Properties
-    public bool HasCookies => this.belt.Any(x => x);
+    public bool HasBiscuits => this.belt.Any(x => x);
     #endregion
 
     #region Public and overriden methods
-    public void AddCookie()
+    public void AddBiscuit()
     {
         this.belt[0] = true;
     }
 
     public void Move()
     {
-        var cookieReady = this.belt[^1];
+        var biscuitReady = this.belt[^1];
         for (var i = this.belt.Length - 1; i > 0; i--)
         {
             this.belt[i] = this.belt[i - 1];
         }
 
         this.belt[0] = false;
-        if (cookieReady)
+        if (biscuitReady)
         {
-            this.app.GetEventHub().Raise(new CookieReadyEvent());
+            this.app.GetEventHub().Raise(new BiscuitReadyEvent());
         }
     }
     #endregion

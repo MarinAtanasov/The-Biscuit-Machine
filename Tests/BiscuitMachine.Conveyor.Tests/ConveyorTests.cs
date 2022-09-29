@@ -42,53 +42,53 @@ public class ConveyorTests : IDisposable
     }
 
     [Fact]
-    public void TestConveyorAddCookie()
+    public void TestConveyorAddBiscuit()
     {
         var conveyor = this.app.GetConveyor();
 
-        conveyor.AddCookie();
+        conveyor.AddBiscuit();
 
-        conveyor.HasCookies.Should().BeTrue("a cookie has been added to the conveyor");
+        conveyor.HasBiscuits.Should().BeTrue("a biscuit has been added to the conveyor");
     }
 
     [Fact]
-    public void TestConveyorHasCookiesEmptyConveyor()
+    public void TestConveyorHasBiscuitsEmptyConveyor()
     {
-        this.app.GetConveyor().HasCookies.Should().BeFalse("no cookies have been added to the conveyor");
+        this.app.GetConveyor().HasBiscuits.Should().BeFalse("no biscuits have been added to the conveyor");
     }
 
     [Fact]
-    public void TestConveyorHasCookieOneCookie()
-    {
-        var conveyor = this.app.GetConveyor();
-        var config = this.app.ConfigService.GetConveyorConfig();
-
-        conveyor.AddCookie();
-        for (var i = 0; i < config.ConveyorLength; i++)
-        {
-            conveyor.HasCookies.Should().BeTrue("the cookie should be still on the conveyor belt");
-            conveyor.Move();
-        }
-
-        conveyor.HasCookies.Should().BeFalse("the cookie should no longer be on the conveyor belt");
-    }
-
-    [Fact]
-    public void TestCookieReadyEvent()
+    public void TestConveyorHasBiscuitsOneBiscuit()
     {
         var conveyor = this.app.GetConveyor();
         var config = this.app.ConfigService.GetConveyorConfig();
-        var cookieReady = false;
-        this.app.GetEventHub().Subscribe<CookieReadyEvent>(_ => cookieReady = true);
 
-        conveyor.AddCookie();
+        conveyor.AddBiscuit();
         for (var i = 0; i < config.ConveyorLength; i++)
         {
-            cookieReady.Should().BeFalse("the cookie should not have reached the end of the conveyor");
+            conveyor.HasBiscuits.Should().BeTrue("the biscuit should be still on the conveyor belt");
             conveyor.Move();
         }
 
-        cookieReady.Should().BeTrue("the cookie should have reached the end of the conveyor");
+        conveyor.HasBiscuits.Should().BeFalse("the biscuit should no longer be on the conveyor belt");
+    }
+
+    [Fact]
+    public void TestBiscuitReadyEvent()
+    {
+        var conveyor = this.app.GetConveyor();
+        var config = this.app.ConfigService.GetConveyorConfig();
+        var biscuitReady = false;
+        this.app.GetEventHub().Subscribe<BiscuitReadyEvent>(_ => biscuitReady = true);
+
+        conveyor.AddBiscuit();
+        for (var i = 0; i < config.ConveyorLength; i++)
+        {
+            biscuitReady.Should().BeFalse("the biscuit should not have reached the end of the conveyor");
+            conveyor.Move();
+        }
+
+        biscuitReady.Should().BeTrue("the biscuit should have reached the end of the conveyor");
     }
     #endregion
 

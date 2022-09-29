@@ -6,14 +6,14 @@
 public interface IConveyor
 {
     /// <summary>
-    /// Gets whether there are cookies on the conveyor belt.
+    /// Gets whether there are biscuits on the conveyor belt.
     /// </summary>
-    bool HasCookies { get; }
+    bool HasBiscuits { get; }
 
     /// <summary>
-    /// Adds a cookie to the conveyor belt.
+    /// Adds a biscuit to the conveyor belt.
     /// </summary>
-    void AddCookie();
+    void AddBiscuit();
     
     /// <summary>
     /// Moves the conveyor belt with one step.

@@ -3,8 +3,8 @@
 namespace BiscuitMachine.Conveyor.Events;
 
 /// <summary>
-/// An event that is fired when a cookie leaves the conveyor.
+/// An event that is fired when a biscuit leaves the conveyor.
 /// </summary>
-public sealed class CookieReadyEvent : IEvent
+public sealed class BiscuitReadyEvent : IEvent
 {
 }
