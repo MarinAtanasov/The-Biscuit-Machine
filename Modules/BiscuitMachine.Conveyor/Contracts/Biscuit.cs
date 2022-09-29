@@ -13,6 +13,17 @@ public class Biscuit
     public BiscuitState State { get; private set; } = BiscuitState.Raw;
 
     /// <summary>
+    /// Bakes the biscuit.
+    /// </summary>
+    /// <exception cref="InvalidOperationException">The current state is not supported.</exception>
+    public void Bake() => this.State = this.State switch
+    {
+        BiscuitState.Stamped => BiscuitState.HalfBaked,
+        BiscuitState.HalfBaked => BiscuitState.Baked,
+        _ => throw new InvalidOperationException($"Cannot bake a biscuit in {this.State} state.")
+    };
+
+    /// <summary>
     /// Stamps the biscuit dough.
     /// </summary>
     /// <exception cref="InvalidOperationException">The current state is not supported.</exception>

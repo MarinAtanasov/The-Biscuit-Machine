@@ -33,6 +33,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiscuitMachine.Stamper", "M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiscuitMachine.Stamper.Tests", "Tests\BiscuitMachine.Stamper.Tests\BiscuitMachine.Stamper.Tests.csproj", "{EE375A1F-1D72-4F23-B0D1-DB96CAFD5B67}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiscuitMachine.Oven", "Modules\BiscuitMachine.Oven\BiscuitMachine.Oven.csproj", "{DA32DDF2-BD00-46EC-A2DE-43033166DBE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiscuitMachine.Oven.Tests", "Tests\BiscuitMachine.Oven.Tests\BiscuitMachine.Oven.Tests.csproj", "{322C9D7E-3245-4F7D-BC91-72248381F6BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +52,8 @@ Global
 		{B4AC6B42-A820-43BD-B8D6-B2412303A366} = {399F0F53-2C69-4F44-BB4D-720A0DDA3BF2}
 		{1B5F58E8-2B2A-40DC-BDE6-7F647A8C3672} = {9F166466-33F5-4860-A225-F55A78618383}
 		{EE375A1F-1D72-4F23-B0D1-DB96CAFD5B67} = {399F0F53-2C69-4F44-BB4D-720A0DDA3BF2}
+		{DA32DDF2-BD00-46EC-A2DE-43033166DBE0} = {9F166466-33F5-4860-A225-F55A78618383}
+		{322C9D7E-3245-4F7D-BC91-72248381F6BB} = {399F0F53-2C69-4F44-BB4D-720A0DDA3BF2}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{80432740-4C8E-41A0-9B8B-18B8BCBC7B8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -86,5 +92,13 @@ Global
 		{EE375A1F-1D72-4F23-B0D1-DB96CAFD5B67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE375A1F-1D72-4F23-B0D1-DB96CAFD5B67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE375A1F-1D72-4F23-B0D1-DB96CAFD5B67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA32DDF2-BD00-46EC-A2DE-43033166DBE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA32DDF2-BD00-46EC-A2DE-43033166DBE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA32DDF2-BD00-46EC-A2DE-43033166DBE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA32DDF2-BD00-46EC-A2DE-43033166DBE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{322C9D7E-3245-4F7D-BC91-72248381F6BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{322C9D7E-3245-4F7D-BC91-72248381F6BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{322C9D7E-3245-4F7D-BC91-72248381F6BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{322C9D7E-3245-4F7D-BC91-72248381F6BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

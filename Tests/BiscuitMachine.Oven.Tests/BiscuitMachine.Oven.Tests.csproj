@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <AssemblyName>BiscuitMachine.Oven.Tests</AssemblyName>
+        <AssemblyTitle>BiscuitMachine.Oven.Tests</AssemblyTitle>
+        <Description>Contains tests for the Oven module.</Description>
+        <GenerateDocumentationFile>false</GenerateDocumentationFile>
+        <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+        <IsPackable>false</IsPackable>
+        <IsTestProject>true</IsTestProject>
+        <Nullable>disable</Nullable>
+        <PackageId>BiscuitMachine.Oven.Tests</PackageId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\Modules\BiscuitMachine.Oven\BiscuitMachine.Oven.csproj" />
+        <ProjectReference Include="..\..\Modules\BiscuitMachine.Testing\BiscuitMachine.Testing.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.0" />
+    </ItemGroup>
+
+</Project>

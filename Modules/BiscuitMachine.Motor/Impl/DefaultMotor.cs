@@ -45,8 +45,8 @@ internal sealed class DefaultMotor : IApplicationLifecycle, IMotor
         if (this.State == MotorState.Off)
             return;
         
-        this.State = MotorState.Off;
         this.UnscheduleTimerEvent();
+        this.State = MotorState.Off;
     }
 
     public void TurnOn()

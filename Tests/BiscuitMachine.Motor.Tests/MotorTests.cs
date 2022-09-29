@@ -107,7 +107,7 @@ public class MotorTests : IDisposable
     {
         this.app.ConfigService.GetScheduledEventsConfig().ExecutionCheck = TimeSpan.FromMilliseconds(1);
         this.app.ConfigService.GetMotorConfig().PulseDelay = TimeSpan.FromMilliseconds(1);
-        this.app.Restart();
+        this.app.Reinitialize();
 
         var motor = this.app.GetMotor();
         var pulseCalled = false;
