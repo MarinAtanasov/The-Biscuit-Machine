@@ -13,8 +13,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\Modules\BiscuitMachine.Testing\BiscuitMachine.Testing.csproj" />
         <ProjectReference Include="..\..\Modules\BiscuitMachine.Motor\BiscuitMachine.Motor.csproj" />
+        <ProjectReference Include="..\..\Modules\BiscuitMachine.Testing\BiscuitMachine.Testing.csproj" />
     </ItemGroup>
 
     <ItemGroup>
