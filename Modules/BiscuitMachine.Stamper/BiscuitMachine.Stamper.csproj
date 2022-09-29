@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <AssemblyName>BiscuitMachine.Stamper</AssemblyName>
+        <AssemblyTitle>BiscuitMachine.Stamper</AssemblyTitle>
+        <Description>Module used for working with a conveyor belt stamper.</Description>
+        <PackageId>BiscuitMachine.Stamper</PackageId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\BiscuitMachine.Motor\BiscuitMachine.Motor.csproj" />
+    </ItemGroup>
+
+</Project>

@@ -29,6 +29,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiscuitMachine.Extruder", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiscuitMachine.Extruder.Tests", "Tests\BiscuitMachine.Extruder.Tests\BiscuitMachine.Extruder.Tests.csproj", "{B4AC6B42-A820-43BD-B8D6-B2412303A366}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiscuitMachine.Stamper", "Modules\BiscuitMachine.Stamper\BiscuitMachine.Stamper.csproj", "{1B5F58E8-2B2A-40DC-BDE6-7F647A8C3672}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiscuitMachine.Stamper.Tests", "Tests\BiscuitMachine.Stamper.Tests\BiscuitMachine.Stamper.Tests.csproj", "{EE375A1F-1D72-4F23-B0D1-DB96CAFD5B67}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +46,8 @@ Global
 		{6345502F-EC78-4FC8-B79F-F9ACCBC2EA71} = {399F0F53-2C69-4F44-BB4D-720A0DDA3BF2}
 		{3F83C0C1-1286-4169-AC6B-DA6286F8D520} = {9F166466-33F5-4860-A225-F55A78618383}
 		{B4AC6B42-A820-43BD-B8D6-B2412303A366} = {399F0F53-2C69-4F44-BB4D-720A0DDA3BF2}
+		{1B5F58E8-2B2A-40DC-BDE6-7F647A8C3672} = {9F166466-33F5-4860-A225-F55A78618383}
+		{EE375A1F-1D72-4F23-B0D1-DB96CAFD5B67} = {399F0F53-2C69-4F44-BB4D-720A0DDA3BF2}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{80432740-4C8E-41A0-9B8B-18B8BCBC7B8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -72,5 +78,13 @@ Global
 		{B4AC6B42-A820-43BD-B8D6-B2412303A366}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4AC6B42-A820-43BD-B8D6-B2412303A366}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4AC6B42-A820-43BD-B8D6-B2412303A366}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B5F58E8-2B2A-40DC-BDE6-7F647A8C3672}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B5F58E8-2B2A-40DC-BDE6-7F647A8C3672}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B5F58E8-2B2A-40DC-BDE6-7F647A8C3672}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B5F58E8-2B2A-40DC-BDE6-7F647A8C3672}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE375A1F-1D72-4F23-B0D1-DB96CAFD5B67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE375A1F-1D72-4F23-B0D1-DB96CAFD5B67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE375A1F-1D72-4F23-B0D1-DB96CAFD5B67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE375A1F-1D72-4F23-B0D1-DB96CAFD5B67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <AssemblyName>BiscuitMachine.Stamper.Tests</AssemblyName>
+        <AssemblyTitle>BiscuitMachine.Stamper.Tests</AssemblyTitle>
+        <Description>Contains tests for the Stamper module.</Description>
+        <GenerateDocumentationFile>false</GenerateDocumentationFile>
+        <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+        <IsPackable>false</IsPackable>
+        <IsTestProject>true</IsTestProject>
+        <Nullable>disable</Nullable>
+        <PackageId>BiscuitMachine.Stamper.Tests</PackageId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\Modules\BiscuitMachine.Testing\BiscuitMachine.Testing.csproj" />
+        <ProjectReference Include="..\..\Modules\BiscuitMachine.Stamper\BiscuitMachine.Stamper.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.0" />
+    </ItemGroup>
+
+</Project>
