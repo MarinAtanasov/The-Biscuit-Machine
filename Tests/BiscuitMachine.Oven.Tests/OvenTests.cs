@@ -100,7 +100,7 @@ public class OvenTests : IDisposable
     }
 
     [Fact]
-    public void TestOvenCooling()
+    public void TestOvenCoolingOnState()
     {
         this.app.ConfigService.GetScheduledEventsConfig().ExecutionCheck = TimeSpan.FromMilliseconds(1);
         var config = this.app.ConfigService.GetOvenConfig();
@@ -120,6 +120,25 @@ public class OvenTests : IDisposable
             return prev < previousTemperature;
         };
         action.ShouldReturn(true, "the oven should cool down before overheating");
+    }
+
+    [Fact]
+    public void TestOvenCoolingOffState()
+    {
+        this.app.ConfigService.GetScheduledEventsConfig().ExecutionCheck = TimeSpan.FromMilliseconds(1);
+        var config = this.app.ConfigService.GetOvenConfig();
+        config.AmbientTemperature = config.MinTemperature - config.TemperatureIncreasePerInterval * 2;
+        config.TemperatureCheckDelay = TimeSpan.FromMilliseconds(1);
+        this.app.Reinitialize();
+
+        var oven = this.app.GetOven();
+        var action = () => oven.IsHeated;
+
+        oven.TurnOn();
+        action.ShouldReturn(true, "the oven should heat up while it is on");
+
+        oven.TurnOff();
+        action.ShouldReturn(false, "the oven should cool down while it is off");
     }
     #endregion
 

@@ -21,6 +21,9 @@ internal sealed class DefaultOven : IApplicationLifecycle, IOven
         this.Temperature = this.app.ConfigService.GetOvenConfig().AmbientTemperature;
         this.app.GetEventHub().Subscribe<HeatingElementTimerEvent>(this.HeatingElementTimerEvent);
         this.app.GetEventHub().Subscribe<PulseEvent>(this.PulseEvent);
+
+        var delay = this.app.ConfigService.GetOvenConfig().TemperatureCheckDelay;
+        this.scheduledEvent = this.app.GetTimerScheduledEventHub().Schedule(new HeatingElementTimerEvent(), delay, delay);
     }
 
     public void Uninitialize()
@@ -58,9 +61,8 @@ internal sealed class DefaultOven : IApplicationLifecycle, IOven
         if (this.State == OvenState.Off)
             return;
 
-        this.UnscheduleTimerEvent();
-        this.HeatingElementState = HeatingElementState.Off;
         this.State = OvenState.Off;
+        this.HeatingElementState = HeatingElementState.Off;
     }
 
     public void TurnOn()
@@ -69,8 +71,6 @@ internal sealed class DefaultOven : IApplicationLifecycle, IOven
             return;
 
         this.State = OvenState.On;
-        var delay = this.app.ConfigService.GetOvenConfig().TemperatureCheckDelay;
-        this.scheduledEvent = this.app.GetTimerScheduledEventHub().Schedule(new HeatingElementTimerEvent(), delay, delay);
     }
     #endregion
 
@@ -78,7 +78,11 @@ internal sealed class DefaultOven : IApplicationLifecycle, IOven
     private void HeatingElementTimerEvent(HeatingElementTimerEvent _)
     {
         var config = this.app.ConfigService.GetOvenConfig();
-        if (this.HeatingElementState == HeatingElementState.On)
+        if (this.State == OvenState.Off)
+        {
+            this.Temperature -= config.TemperatureDecreasePerInterval;
+        }
+        else if (this.HeatingElementState == HeatingElementState.On)
         {
             this.Temperature += config.TemperatureIncreasePerInterval;
             this.HeatingElementState = this.Temperature + config.TemperatureIncreasePerInterval > config.MaxTemperature ?
