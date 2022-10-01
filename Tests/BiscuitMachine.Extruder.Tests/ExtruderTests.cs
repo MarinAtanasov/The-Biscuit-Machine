@@ -38,6 +38,10 @@ public class ExtruderTests : IDisposable
         extruder.TurnOn();
 
         extruder.State.Should().Be(ExtruderState.On, "the extruder should have been turned on");
+
+        extruder.TurnOn();
+
+        extruder.State.Should().Be(ExtruderState.On, "the extruder should stay turned on after a second call");
     }
     
     [Fact]

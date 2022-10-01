@@ -1,9 +1,8 @@
-﻿using AppBrix;
-using AppBrix.Configuration;
+﻿using AppBrix.Configuration;
 using BiscuitMachine.Oven.Configuration;
 using BiscuitMachine.Oven.Services;
 
-namespace BiscuitMachine.Oven;
+namespace AppBrix;
 
 /// <summary>
 /// Extension methods for the oven module.

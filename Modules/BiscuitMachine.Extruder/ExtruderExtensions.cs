@@ -1,7 +1,6 @@
-﻿using AppBrix;
-using BiscuitMachine.Extruder.Services;
+﻿using BiscuitMachine.Extruder.Services;
 
-namespace BiscuitMachine.Extruder;
+namespace AppBrix;
 
 /// <summary>
 /// Extension methods for the extruder module.

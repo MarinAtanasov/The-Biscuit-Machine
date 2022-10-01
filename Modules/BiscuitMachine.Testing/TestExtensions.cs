@@ -32,9 +32,6 @@ public static class TestExtensions
     /// <param name="becauseArgs">Zero or more values to use for filling in any <see cref="string.Format(string, object[])"/> compatible placeholders.</param>
     private static void ShouldReturn<T>(this Func<T> func, T result, TimeSpan timeout, string because = "", params object[] becauseArgs)
     {
-        if (func is null)
-            throw new ArgumentNullException(nameof(func));
-
         var sw = Stopwatch.StartNew();
         while (sw.Elapsed < timeout)
         {

@@ -39,6 +39,10 @@ public class StamperTests : IDisposable
         stamper.TurnOn();
 
         stamper.State.Should().Be(StamperState.On, "the stamper should have been turned on");
+
+        stamper.TurnOn();
+
+        stamper.State.Should().Be(StamperState.On, "the stamper should stay turned on after a second call");
     }
     
     [Fact]

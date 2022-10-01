@@ -5,7 +5,7 @@ namespace BiscuitMachine.Conveyor.Contracts;
 /// <summary>
 /// Defines a biscuit that will be created by the machine.
 /// </summary>
-public class Biscuit
+public sealed class Biscuit
 {
     /// <summary>
     /// Gets or sets the state of the biscuit.

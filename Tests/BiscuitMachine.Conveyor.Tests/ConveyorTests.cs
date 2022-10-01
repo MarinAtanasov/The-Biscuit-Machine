@@ -7,7 +7,6 @@ using BiscuitMachine.Conveyor.Events;
 using BiscuitMachine.Conveyor.Services;
 using FluentAssertions;
 using System;
-using System.Runtime.Versioning;
 using Xunit;
 
 namespace BiscuitMachine.Conveyor.Tests;

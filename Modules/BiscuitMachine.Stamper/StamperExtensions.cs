@@ -1,9 +1,8 @@
-﻿using AppBrix;
-using AppBrix.Configuration;
+﻿using AppBrix.Configuration;
 using BiscuitMachine.Stamper.Configuration;
 using BiscuitMachine.Stamper.Services;
 
-namespace BiscuitMachine.Stamper;
+namespace AppBrix;
 
 /// <summary>
 /// Extension methods for the stamper module.

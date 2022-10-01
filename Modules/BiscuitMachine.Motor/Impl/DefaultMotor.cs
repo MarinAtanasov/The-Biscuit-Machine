@@ -19,9 +19,8 @@ internal sealed class DefaultMotor : IApplicationLifecycle, IMotor
 
     public void Uninitialize()
     {
-        this.UnscheduleTimerEvent();
         this.app.GetEventHub().Unsubscribe<MotorTimerEvent>(this.MotorTimerEvent);
-        this.State = MotorState.Off;
+        this.TurnOff();
         this.app = null;
     }
     #endregion

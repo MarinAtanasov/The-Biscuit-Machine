@@ -28,14 +28,14 @@ internal sealed class DefaultOven : IApplicationLifecycle, IOven
 
     public void Uninitialize()
     {
-        this.UnscheduleTimerEvent();
         this.app.GetEventHub().Unsubscribe<PulseEvent>(this.PulseEvent);
         this.app.GetEventHub().Unsubscribe<HeatingElementTimerEvent>(this.HeatingElementTimerEvent);
+        this.UnscheduleTimerEvent();
+        this.TurnOff();
+
         this.Temperature = this.app.ConfigService.GetOvenConfig().AmbientTemperature;
-        this.State = OvenState.Off;
         this.Length = 2;
         this.Index = this.app.ConfigService.GetOvenConfig().Index;
-        this.HeatingElementState = HeatingElementState.Off;
         this.app = null;
     }
     #endregion
@@ -78,6 +78,8 @@ internal sealed class DefaultOven : IApplicationLifecycle, IOven
     private void HeatingElementTimerEvent(HeatingElementTimerEvent _)
     {
         var config = this.app.ConfigService.GetOvenConfig();
+        var isHeated = this.IsHeated;
+
         if (this.State == OvenState.Off)
         {
             this.Temperature -= config.TemperatureDecreasePerInterval;
@@ -93,6 +95,11 @@ internal sealed class DefaultOven : IApplicationLifecycle, IOven
             this.Temperature -= config.TemperatureDecreasePerInterval;
             this.HeatingElementState = this.Temperature - config.TemperatureDecreasePerInterval < config.MinTemperature ?
                 HeatingElementState.On : HeatingElementState.Off;
+        }
+
+        if (!isHeated && this.IsHeated)
+        {
+            this.app.GetEventHub().Raise(new OvenHeatedEvent());
         }
     }
 

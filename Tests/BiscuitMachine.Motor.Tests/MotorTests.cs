@@ -56,6 +56,10 @@ public class MotorTests : IDisposable
         motor.TurnOn();
 
         motor.State.Should().Be(MotorState.On, "the motor should have been turned on");
+
+        motor.TurnOn();
+
+        motor.State.Should().Be(MotorState.On, "the motor should stay turned on after a second call");
     }
     
     [Fact]

@@ -15,6 +15,7 @@ public sealed class OvenConfig : IConfig
     public OvenConfig()
     {
         this.AmbientTemperature = 20;
+        this.Index = 0;
         this.MaxTemperature = 240;
         this.MinTemperature = 220;
         this.TemperatureCheckDelay = TimeSpan.FromSeconds(1);

@@ -7,6 +7,16 @@ namespace BiscuitMachine.Stamper.Configuration;
 /// </summary>
 public sealed class StamperConfig : IConfig
 {
+    #region Construction
+    /// <summary>
+    /// Creates a new instance of <see cref="StamperConfig"/>.
+    /// </summary>
+    public StamperConfig()
+    {
+        this.Index = 0;
+    }
+    #endregion
+
     #region Properties
     /// <summary>
     /// Gets or sets the stamper's index on the conveyor.

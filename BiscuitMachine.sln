@@ -15,27 +15,31 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{9F16
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{399F0F53-2C69-4F44-BB4D-720A0DDA3BF2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiscuitMachine.Controller", "Modules\BiscuitMachine.Controller\BiscuitMachine.Controller.csproj", "{8BD7D2B6-5C01-4C02-9EAC-C51376D87F1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiscuitMachine.Controller.Tests", "Tests\BiscuitMachine.Controller.Tests\BiscuitMachine.Controller.Tests.csproj", "{B8780EFF-1095-47E6-9AA0-12FDCD312FE7}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiscuitMachine.Conveyor", "Modules\BiscuitMachine.Conveyor\BiscuitMachine.Conveyor.csproj", "{80432740-4C8E-41A0-9B8B-18B8BCBC7B8A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiscuitMachine.Conveyor.Tests", "Tests\BiscuitMachine.Conveyor.Tests\BiscuitMachine.Conveyor.Tests.csproj", "{186D65FF-722F-43BD-92E7-5375BD8DC35D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiscuitMachine.Testing", "Modules\BiscuitMachine.Testing\BiscuitMachine.Testing.csproj", "{33966016-32EF-46EF-AF43-ECBEAA1CA1CC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiscuitMachine.Motor", "Modules\BiscuitMachine.Motor\BiscuitMachine.Motor.csproj", "{25EFF540-FED5-4D79-BB38-6F076C123A27}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiscuitMachine.Motor.Tests", "Tests\BiscuitMachine.Motor.Tests\BiscuitMachine.Motor.Tests.csproj", "{6345502F-EC78-4FC8-B79F-F9ACCBC2EA71}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiscuitMachine.Extruder", "Modules\BiscuitMachine.Extruder\BiscuitMachine.Extruder.csproj", "{3F83C0C1-1286-4169-AC6B-DA6286F8D520}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiscuitMachine.Extruder.Tests", "Tests\BiscuitMachine.Extruder.Tests\BiscuitMachine.Extruder.Tests.csproj", "{B4AC6B42-A820-43BD-B8D6-B2412303A366}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiscuitMachine.Stamper", "Modules\BiscuitMachine.Stamper\BiscuitMachine.Stamper.csproj", "{1B5F58E8-2B2A-40DC-BDE6-7F647A8C3672}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiscuitMachine.Motor", "Modules\BiscuitMachine.Motor\BiscuitMachine.Motor.csproj", "{25EFF540-FED5-4D79-BB38-6F076C123A27}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiscuitMachine.Stamper.Tests", "Tests\BiscuitMachine.Stamper.Tests\BiscuitMachine.Stamper.Tests.csproj", "{EE375A1F-1D72-4F23-B0D1-DB96CAFD5B67}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiscuitMachine.Motor.Tests", "Tests\BiscuitMachine.Motor.Tests\BiscuitMachine.Motor.Tests.csproj", "{6345502F-EC78-4FC8-B79F-F9ACCBC2EA71}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiscuitMachine.Oven", "Modules\BiscuitMachine.Oven\BiscuitMachine.Oven.csproj", "{DA32DDF2-BD00-46EC-A2DE-43033166DBE0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiscuitMachine.Oven.Tests", "Tests\BiscuitMachine.Oven.Tests\BiscuitMachine.Oven.Tests.csproj", "{322C9D7E-3245-4F7D-BC91-72248381F6BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiscuitMachine.Stamper", "Modules\BiscuitMachine.Stamper\BiscuitMachine.Stamper.csproj", "{1B5F58E8-2B2A-40DC-BDE6-7F647A8C3672}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiscuitMachine.Stamper.Tests", "Tests\BiscuitMachine.Stamper.Tests\BiscuitMachine.Stamper.Tests.csproj", "{EE375A1F-1D72-4F23-B0D1-DB96CAFD5B67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiscuitMachine.Testing", "Modules\BiscuitMachine.Testing\BiscuitMachine.Testing.csproj", "{33966016-32EF-46EF-AF43-ECBEAA1CA1CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,6 +58,8 @@ Global
 		{EE375A1F-1D72-4F23-B0D1-DB96CAFD5B67} = {399F0F53-2C69-4F44-BB4D-720A0DDA3BF2}
 		{DA32DDF2-BD00-46EC-A2DE-43033166DBE0} = {9F166466-33F5-4860-A225-F55A78618383}
 		{322C9D7E-3245-4F7D-BC91-72248381F6BB} = {399F0F53-2C69-4F44-BB4D-720A0DDA3BF2}
+		{8BD7D2B6-5C01-4C02-9EAC-C51376D87F1F} = {9F166466-33F5-4860-A225-F55A78618383}
+		{B8780EFF-1095-47E6-9AA0-12FDCD312FE7} = {399F0F53-2C69-4F44-BB4D-720A0DDA3BF2}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{80432740-4C8E-41A0-9B8B-18B8BCBC7B8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -100,5 +106,13 @@ Global
 		{322C9D7E-3245-4F7D-BC91-72248381F6BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{322C9D7E-3245-4F7D-BC91-72248381F6BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{322C9D7E-3245-4F7D-BC91-72248381F6BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BD7D2B6-5C01-4C02-9EAC-C51376D87F1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BD7D2B6-5C01-4C02-9EAC-C51376D87F1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BD7D2B6-5C01-4C02-9EAC-C51376D87F1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BD7D2B6-5C01-4C02-9EAC-C51376D87F1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8780EFF-1095-47E6-9AA0-12FDCD312FE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8780EFF-1095-47E6-9AA0-12FDCD312FE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8780EFF-1095-47E6-9AA0-12FDCD312FE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8780EFF-1095-47E6-9AA0-12FDCD312FE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

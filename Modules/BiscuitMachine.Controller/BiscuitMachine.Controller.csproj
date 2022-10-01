@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <AssemblyName>BiscuitMachine.Controller</AssemblyName>
+        <AssemblyTitle>BiscuitMachine.Controller</AssemblyTitle>
+        <Description>Module used for working with a conveyor belt controller.</Description>
+        <PackageId>BiscuitMachine.Controller</PackageId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\BiscuitMachine.Conveyor\BiscuitMachine.Conveyor.csproj" />
+        <ProjectReference Include="..\BiscuitMachine.Extruder\BiscuitMachine.Extruder.csproj" />
+        <ProjectReference Include="..\BiscuitMachine.Motor\BiscuitMachine.Motor.csproj" />
+        <ProjectReference Include="..\BiscuitMachine.Oven\BiscuitMachine.Oven.csproj" />
+        <ProjectReference Include="..\BiscuitMachine.Stamper\BiscuitMachine.Stamper.csproj" />
+    </ItemGroup>
+
+</Project>

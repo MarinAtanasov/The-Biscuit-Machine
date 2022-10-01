@@ -3,6 +3,7 @@ using AppBrix.Configuration.Memory;
 using BiscuitMachine.Conveyor.Contracts;
 using BiscuitMachine.Motor.Events;
 using BiscuitMachine.Oven.Contracts;
+using BiscuitMachine.Oven.Events;
 using BiscuitMachine.Oven.Services;
 using BiscuitMachine.Testing;
 using FluentAssertions;
@@ -39,6 +40,10 @@ public class OvenTests : IDisposable
         oven.TurnOn();
 
         oven.State.Should().Be(OvenState.On, "the oven should have been turned on");
+
+        oven.TurnOn();
+
+        oven.State.Should().Be(OvenState.On, "the oven should stay turned on after a second call");
     }
     
     [Fact]
@@ -90,13 +95,16 @@ public class OvenTests : IDisposable
         config.AmbientTemperature = config.MinTemperature - config.TemperatureIncreasePerInterval * 2;
         config.TemperatureCheckDelay = TimeSpan.FromMilliseconds(1);
         this.app.Reinitialize();
+        var isHeatedEventCalled = false;
+        this.app.GetEventHub().Subscribe<OvenHeatedEvent>(_ => isHeatedEventCalled = true);
 
         var oven = this.app.GetOven();
 
         oven.TurnOn();
 
-        var action = () => oven.IsHeated;
-        action.ShouldReturn(true, "the oven should heat up while it is on");
+        var isHeated = () => oven.IsHeated;
+        isHeated.ShouldReturn(true, "the oven should heat up while it is on");
+        isHeatedEventCalled.Should().BeTrue("the oven heated event should have been called");
     }
 
     [Fact]

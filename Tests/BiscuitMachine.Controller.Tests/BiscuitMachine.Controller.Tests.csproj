@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <AssemblyName>BiscuitMachine.Controller.Tests</AssemblyName>
+        <AssemblyTitle>BiscuitMachine.Controller.Tests</AssemblyTitle>
+        <Description>Contains tests for the Controller module.</Description>
+        <GenerateDocumentationFile>false</GenerateDocumentationFile>
+        <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+        <IsPackable>false</IsPackable>
+        <IsTestProject>true</IsTestProject>
+        <Nullable>disable</Nullable>
+        <PackageId>BiscuitMachine.Controller.Tests</PackageId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\Modules\BiscuitMachine.Controller\BiscuitMachine.Controller.csproj" />
+        <ProjectReference Include="..\..\Modules\BiscuitMachine.Testing\BiscuitMachine.Testing.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.0" />
+    </ItemGroup>
+
+</Project>
