@@ -5,7 +5,7 @@ using Xunit;
 
 namespace BiscuitMachine.Conveyor.Tests;
 
-public class BiscuitTests
+public sealed class BiscuitTests
 {
     #region Tests
     [Fact]

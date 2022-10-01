@@ -11,7 +11,7 @@ namespace BiscuitMachine.Extruder;
 /// <summary>
 /// Module used for working with a conveyor belt extruder.
 /// </summary>
-public class ExtruderModule : ModuleBase
+public sealed class ExtruderModule : ModuleBase
 {
     #region Properties
     /// <summary>

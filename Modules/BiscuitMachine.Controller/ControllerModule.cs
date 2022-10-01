@@ -14,7 +14,7 @@ namespace BiscuitMachine.Controller;
 /// <summary>
 /// Module used for working with a conveyor belt controller.
 /// </summary>
-public class ControllerModule : ModuleBase
+public sealed class ControllerModule : ModuleBase
 {
     #region Properties
     /// <summary>

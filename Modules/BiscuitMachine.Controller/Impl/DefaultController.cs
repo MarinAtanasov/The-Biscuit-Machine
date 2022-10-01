@@ -42,6 +42,7 @@ internal sealed class DefaultController : IApplicationLifecycle, IController
 
         this.State = ControllerState.Pause;
         this.app.GetExtruder().TurnOff();
+        this.app.GetOven().TurnOn();
     }
 
     public void TurnOff()
@@ -62,16 +63,24 @@ internal sealed class DefaultController : IApplicationLifecycle, IController
             return;
 
         this.State = ControllerState.On;
-        this.app.GetOven().TurnOn();
+        if (this.app.GetOven().IsHeated)
+        {
+            this.TurnOnComponents();
+        }
+        else
+        {
+            this.app.GetOven().TurnOn();
+        }
     }
     #endregion
 
     #region Private methods
     private void OvenHeatedEvent(OvenHeatedEvent _)
     {
-        this.app.GetExtruder().TurnOn();
-        this.app.GetStamper().TurnOn();
-        this.app.GetMotor().TurnOn();
+        if (this.State == ControllerState.On)
+        {
+            this.TurnOnComponents();
+        }
     }
 
     private void PulseEvent(PulseEvent _)
@@ -81,6 +90,14 @@ internal sealed class DefaultController : IApplicationLifecycle, IController
             this.app.GetMotor().TurnOff();
             this.app.GetStamper().TurnOff();
         }
+    }
+
+    private void TurnOnComponents()
+    {
+        this.app.GetExtruder().TurnOn();
+        this.app.GetStamper().TurnOn();
+        this.app.GetOven().TurnOn();
+        this.app.GetMotor().TurnOn();
     }
     #endregion
 

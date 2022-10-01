@@ -10,7 +10,7 @@ using Xunit;
 
 namespace BiscuitMachine.Extruder.Tests;
 
-public class ExtruderTests : IDisposable
+public sealed class ExtruderTests : IDisposable
 {
     #region Setup and cleanup
     public ExtruderTests() => this.app = App.Start<TestMainModule<ExtruderModule>>(new MemoryConfigService());

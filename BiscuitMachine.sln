@@ -41,6 +41,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiscuitMachine.Stamper.Test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiscuitMachine.Testing", "Modules\BiscuitMachine.Testing\BiscuitMachine.Testing.csproj", "{33966016-32EF-46EF-AF43-ECBEAA1CA1CC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiscuitMachine.ConsoleApp", "Applications\BiscuitMachine.ConsoleApp\BiscuitMachine.ConsoleApp.csproj", "{972E916C-4EB4-4402-80EC-EEEF09344C37}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,6 +62,7 @@ Global
 		{322C9D7E-3245-4F7D-BC91-72248381F6BB} = {399F0F53-2C69-4F44-BB4D-720A0DDA3BF2}
 		{8BD7D2B6-5C01-4C02-9EAC-C51376D87F1F} = {9F166466-33F5-4860-A225-F55A78618383}
 		{B8780EFF-1095-47E6-9AA0-12FDCD312FE7} = {399F0F53-2C69-4F44-BB4D-720A0DDA3BF2}
+		{972E916C-4EB4-4402-80EC-EEEF09344C37} = {D48A0D9F-48CC-48A4-ABF6-7CA9E0FFFC47}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{80432740-4C8E-41A0-9B8B-18B8BCBC7B8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -114,5 +117,9 @@ Global
 		{B8780EFF-1095-47E6-9AA0-12FDCD312FE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8780EFF-1095-47E6-9AA0-12FDCD312FE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8780EFF-1095-47E6-9AA0-12FDCD312FE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{972E916C-4EB4-4402-80EC-EEEF09344C37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{972E916C-4EB4-4402-80EC-EEEF09344C37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{972E916C-4EB4-4402-80EC-EEEF09344C37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{972E916C-4EB4-4402-80EC-EEEF09344C37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

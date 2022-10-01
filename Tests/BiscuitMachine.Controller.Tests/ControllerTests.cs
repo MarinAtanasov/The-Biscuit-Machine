@@ -13,7 +13,7 @@ using Xunit;
 
 namespace BiscuitMachine.Controller.Tests;
 
-public class ControllerTests : IDisposable
+public sealed class ControllerTests : IDisposable
 {
     #region Setup and cleanup
     public ControllerTests()
@@ -97,13 +97,60 @@ public class ControllerTests : IDisposable
         oven.State.Should().Be(OvenState.On, "the oven should be turned on as soon as the controller is");
         stamper.State.Should().Be(StamperState.Off, "the stamper should be off before the oven is heated");
 
-        var heatingDone = () => oven.IsHeated;
-        heatingDone.ShouldReturn(true, "the oven should heat up after the controller is switched on");
+        var isHeated = () => oven.IsHeated;
+        isHeated.ShouldReturn(true, "the oven should heat up after the controller is switched on");
         
         extruder.State.Should().Be(ExtruderState.On, "the extruder should be turned on after the oven is heated");
         motor.State.Should().Be(MotorState.On, "the motor should be turned on after the oven is heated");
         oven.State.Should().Be(OvenState.On, "the oven should stay on after it is heated");
         stamper.State.Should().Be(StamperState.On, "the stamper should be turned on after the oven is heated");
+    }
+
+    [Fact]
+    public void TestControllerTurnOnWarmConveyor()
+    {
+        var controller = this.app.GetController();
+        var extruder = this.app.GetExtruder();
+        var motor = this.app.GetMotor();
+        var oven = this.app.GetOven();
+        var stamper = this.app.GetStamper();
+
+        controller.Pause();
+
+        var isHeated = () => oven.IsHeated;
+        isHeated.ShouldReturn(true, "the oven should heat up while the controller is paused");
+        extruder.State.Should().Be(ExtruderState.Off, "the extruder should be off after the oven is heated");
+        motor.State.Should().Be(MotorState.Off, "the motor should be off after the oven is heated");
+        oven.State.Should().Be(OvenState.On, "the oven should be turned on as soon as the controller is paused");
+        stamper.State.Should().Be(StamperState.Off, "the stamper should be off after the oven is heated");
+
+        controller.TurnOn();
+
+        extruder.State.Should().Be(ExtruderState.On, "the extruder should be turned on after resuming");
+        motor.State.Should().Be(MotorState.On, "the motor should be turned on after resuming");
+        oven.State.Should().Be(OvenState.On, "the oven should stay on after resuming");
+        stamper.State.Should().Be(StamperState.On, "the stamper should be turned on after resuming");
+    }
+
+    [Fact]
+    public void TestControllerTurnOnPausedConveyor()
+    {
+        var controller = this.app.GetController();
+        var extruder = this.app.GetExtruder();
+        var motor = this.app.GetMotor();
+        var oven = this.app.GetOven();
+        var stamper = this.app.GetStamper();
+
+        controller.Pause();
+        controller.TurnOn();
+
+        var isHeated = () => oven.IsHeated;
+        isHeated.ShouldReturn(true, "the oven should heat up after the controller is resumed");
+
+        extruder.State.Should().Be(ExtruderState.On, "the extruder should be turned on after resuming");
+        motor.State.Should().Be(MotorState.On, "the motor should be turned on after resuming");
+        oven.State.Should().Be(OvenState.On, "the oven should stay on after resuming");
+        stamper.State.Should().Be(StamperState.On, "the stamper should be turned on after resuming");
     }
 
     [Fact]
@@ -128,12 +175,23 @@ public class ControllerTests : IDisposable
         oven.State.Should().Be(OvenState.On, "the oven should stay on while the controller is paused");
         stamper.State.Should().Be(StamperState.On, "the stamper should stay on while the controller is paused");
 
-        hasBiscuits.ShouldReturn(false, "the machine should process all cookies before stopping components");
+        hasBiscuits.ShouldReturn(false, "the machine should process all biscuits before stopping components");
         
         extruder.State.Should().Be(ExtruderState.Off, "the extruder should be off after there are no more biscuits");
         motor.State.Should().Be(MotorState.Off, "the motor should be off after there are no more biscuits");
         oven.State.Should().Be(OvenState.On, "the oven should stay on after there are no more biscuits");
         stamper.State.Should().Be(StamperState.Off, "the stamper should be off after there are no more biscuits");
+    }
+
+    [Fact]
+    public void TestControllerPauseStoppedConveyor()
+    {
+        var controller = this.app.GetController();
+        var oven = this.app.GetOven();
+
+        controller.Pause();
+
+        oven.State.Should().Be(OvenState.On, "the oven should start heating up on pausing the controller");
     }
 
     [Fact]

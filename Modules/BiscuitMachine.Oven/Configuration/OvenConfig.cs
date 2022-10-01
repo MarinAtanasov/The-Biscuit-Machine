@@ -16,9 +16,10 @@ public sealed class OvenConfig : IConfig
     {
         this.AmbientTemperature = 20;
         this.Index = 0;
+        this.Length = 2;
         this.MaxTemperature = 240;
         this.MinTemperature = 220;
-        this.TemperatureCheckDelay = TimeSpan.FromSeconds(1);
+        this.TemperatureCheckDelay = TimeSpan.FromMilliseconds(250);
         this.TemperatureDecreasePerInterval = 5;
         this.TemperatureIncreasePerInterval = 10;
     }
@@ -34,6 +35,11 @@ public sealed class OvenConfig : IConfig
     /// Gets or sets the oven's index on the conveyor.
     /// </summary>
     public int Index { get; set; }
+
+    /// <summary>
+    /// Gets or sets the oven's length on the conveyor.
+    /// </summary>
+    public int Length { get; set; }
 
     /// <summary>
     /// Gets or sets the maximal required temperature for normal operation of the oven.

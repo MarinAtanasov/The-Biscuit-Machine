@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <AssemblyName>BiscuitMachine.ConsoleApp</AssemblyName>
+        <AssemblyTitle>BiscuitMachine.ConsoleApp</AssemblyTitle>
+        <Description>Console application that simulates a conveyor belt for making biscuits.</Description>
+        <GenerateDocumentationFile>false</GenerateDocumentationFile>
+        <OutputType>Exe</OutputType>
+        <PackageId>BiscuitMachine.ConsoleApp</PackageId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\Modules\BiscuitMachine.Controller\BiscuitMachine.Controller.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="AppBrix.Configuration.Memory" Version="0.34.0" />
+      <PackageReference Include="AppBrix.Logging.Console" Version="0.34.0" />
+    </ItemGroup>
+
+</Project>

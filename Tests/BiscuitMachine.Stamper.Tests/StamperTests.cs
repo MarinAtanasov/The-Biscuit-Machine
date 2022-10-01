@@ -11,7 +11,7 @@ using Xunit;
 
 namespace BiscuitMachine.Stamper.Tests;
 
-public class StamperTests : IDisposable
+public sealed class StamperTests : IDisposable
 {
     #region Setup and cleanup
     public StamperTests() => this.app = App.Start<TestMainModule<StamperModule>>(new MemoryConfigService());

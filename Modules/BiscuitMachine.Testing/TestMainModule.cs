@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace BiscuitMachine.Testing;
 
-public class TestMainModule<T> : MainModuleBase where T : class, IModule
+public sealed class TestMainModule<T> : MainModuleBase where T : class, IModule
 {
     public override IEnumerable<Type> Dependencies => new[] { typeof(T) };
 }

@@ -11,7 +11,7 @@ namespace BiscuitMachine.Stamper;
 /// <summary>
 /// Module used for working with a conveyor belt stamper.
 /// </summary>
-public class StamperModule : ModuleBase
+public sealed class StamperModule : ModuleBase
 {
     #region Properties
     /// <summary>

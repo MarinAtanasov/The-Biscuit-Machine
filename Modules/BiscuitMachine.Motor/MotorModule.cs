@@ -11,7 +11,7 @@ namespace BiscuitMachine.Motor;
 /// <summary>
 /// Module used for working with a conveyor belt motor.
 /// </summary>
-public class MotorModule : ModuleBase
+public sealed class MotorModule : ModuleBase
 {
     #region Properties
     /// <summary>

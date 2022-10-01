@@ -10,7 +10,7 @@ namespace BiscuitMachine.Conveyor;
 /// <summary>
 /// Module used for working with a conveyor.
 /// </summary>
-public class ConveyorModule : ModuleBase
+public sealed class ConveyorModule : ModuleBase
 {
     #region Properties
     /// <summary>

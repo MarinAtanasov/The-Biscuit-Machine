@@ -12,7 +12,7 @@ using Xunit;
 
 namespace BiscuitMachine.Oven.Tests;
 
-public class OvenTests : IDisposable
+public sealed class OvenTests : IDisposable
 {
     #region Setup and cleanup
     public OvenTests() => this.app = App.Start<TestMainModule<OvenModule>>(new MemoryConfigService());
@@ -115,6 +115,13 @@ public class OvenTests : IDisposable
         config.AmbientTemperature = config.MinTemperature - config.TemperatureIncreasePerInterval;
         config.TemperatureCheckDelay = TimeSpan.FromMilliseconds(1);
         this.app.Reinitialize();
+        this.app.GetEventHub().Subscribe<OvenTemperatureChangedEvent>(x =>
+        {
+            x.CurrentTemperature.Should().BeGreaterOrEqualTo(config.AmbientTemperature);
+            x.PreviousTemperature.Should().BeGreaterOrEqualTo(config.AmbientTemperature);
+            x.CurrentTemperature.Should().BeLessOrEqualTo(config.MaxTemperature);
+            x.PreviousTemperature.Should().BeLessOrEqualTo(config.MaxTemperature);
+        });
 
         var oven = this.app.GetOven();
         oven.TurnOn();
@@ -138,6 +145,13 @@ public class OvenTests : IDisposable
         config.AmbientTemperature = config.MinTemperature - config.TemperatureIncreasePerInterval * 2;
         config.TemperatureCheckDelay = TimeSpan.FromMilliseconds(1);
         this.app.Reinitialize();
+        this.app.GetEventHub().Subscribe<OvenTemperatureChangedEvent>(x =>
+        {
+            x.CurrentTemperature.Should().BeGreaterOrEqualTo(config.AmbientTemperature);
+            x.PreviousTemperature.Should().BeGreaterOrEqualTo(config.AmbientTemperature);
+            x.CurrentTemperature.Should().BeLessOrEqualTo(config.MaxTemperature);
+            x.PreviousTemperature.Should().BeLessOrEqualTo(config.MaxTemperature);
+        });
 
         var oven = this.app.GetOven();
         var action = () => oven.IsHeated;

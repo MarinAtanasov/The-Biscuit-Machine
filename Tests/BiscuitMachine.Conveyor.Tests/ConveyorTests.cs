@@ -11,7 +11,7 @@ using Xunit;
 
 namespace BiscuitMachine.Conveyor.Tests;
 
-public class ConveyorTests : IDisposable
+public sealed class ConveyorTests : IDisposable
 {
     #region Setup and cleanup
     public ConveyorTests() => this.app = App.Start<TestMainModule<ConveyorModule>>(new MemoryConfigService());

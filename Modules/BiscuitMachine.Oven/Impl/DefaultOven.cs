@@ -5,6 +5,7 @@ using BiscuitMachine.Motor.Events;
 using BiscuitMachine.Oven.Contracts;
 using BiscuitMachine.Oven.Events;
 using BiscuitMachine.Oven.Services;
+using System;
 
 namespace BiscuitMachine.Oven.Impl;
 
@@ -16,7 +17,7 @@ internal sealed class DefaultOven : IApplicationLifecycle, IOven
         this.app = context.App;
         this.HeatingElementState = HeatingElementState.Off;
         this.Index = this.app.ConfigService.GetOvenConfig().Index;
-        this.Length = 2;
+        this.Length = this.app.ConfigService.GetOvenConfig().Length;
         this.State = OvenState.Off;
         this.Temperature = this.app.ConfigService.GetOvenConfig().AmbientTemperature;
         this.app.GetEventHub().Subscribe<HeatingElementTimerEvent>(this.HeatingElementTimerEvent);
@@ -34,7 +35,7 @@ internal sealed class DefaultOven : IApplicationLifecycle, IOven
         this.TurnOff();
 
         this.Temperature = this.app.ConfigService.GetOvenConfig().AmbientTemperature;
-        this.Length = 2;
+        this.Length = this.app.ConfigService.GetOvenConfig().Length;
         this.Index = this.app.ConfigService.GetOvenConfig().Index;
         this.app = null;
     }
@@ -71,6 +72,10 @@ internal sealed class DefaultOven : IApplicationLifecycle, IOven
             return;
 
         this.State = OvenState.On;
+        if (this.Temperature == this.app.ConfigService.GetOvenConfig().AmbientTemperature)
+        {
+            this.HeatingElementState = HeatingElementState.On;
+        }
     }
     #endregion
 
@@ -79,6 +84,7 @@ internal sealed class DefaultOven : IApplicationLifecycle, IOven
     {
         var config = this.app.ConfigService.GetOvenConfig();
         var isHeated = this.IsHeated;
+        var previousTemperature = this.Temperature;
 
         if (this.State == OvenState.Off)
         {
@@ -95,6 +101,12 @@ internal sealed class DefaultOven : IApplicationLifecycle, IOven
             this.Temperature -= config.TemperatureDecreasePerInterval;
             this.HeatingElementState = this.Temperature - config.TemperatureDecreasePerInterval < config.MinTemperature ?
                 HeatingElementState.On : HeatingElementState.Off;
+        }
+
+        this.Temperature = Math.Max(this.Temperature, config.AmbientTemperature);
+        if (this.Temperature != previousTemperature)
+        {
+            this.app.GetEventHub().Raise(new OvenTemperatureChangedEvent(previousTemperature, this.Temperature));
         }
 
         if (!isHeated && this.IsHeated)

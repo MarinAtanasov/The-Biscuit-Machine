@@ -12,7 +12,7 @@ namespace BiscuitMachine.Oven;
 /// <summary>
 /// Module used for working with a conveyor belt oven.
 /// </summary>
-public class OvenModule : ModuleBase
+public sealed class OvenModule : ModuleBase
 {
     #region Properties
     /// <summary>

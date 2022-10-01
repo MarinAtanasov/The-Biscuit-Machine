@@ -11,7 +11,7 @@ using Xunit;
 
 namespace BiscuitMachine.Motor.Tests;
 
-public class MotorTests : IDisposable
+public sealed class MotorTests : IDisposable
 {
     #region Setup and cleanup
     public MotorTests() => this.app = App.Start<TestMainModule<MotorModule>>(new MemoryConfigService());
@@ -96,7 +96,7 @@ public class MotorTests : IDisposable
         this.app.GetEventHub().Subscribe<PulseEvent>(_ =>
         {
             pulseCalled = true;
-            conveyor.HasBiscuits.Should().BeFalse("the cookie should have been pushed out of the conveyor");
+            conveyor.HasBiscuits.Should().BeFalse("the biscuit should have been pushed out of the conveyor");
         });
         motor.TurnOn();
         
