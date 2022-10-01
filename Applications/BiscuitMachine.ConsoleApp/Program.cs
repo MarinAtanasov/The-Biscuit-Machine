@@ -7,7 +7,7 @@ using System;
 var app = App.Start<MainModule>(new MemoryConfigService());
 var controller = app.GetController();
 
-Console.WriteLine("Welcome to the Biscuit Machine. Operation instructions:");
+Console.WriteLine("Welcome to The Biscuit Machine. Operation instructions:");
 Console.WriteLine("You can turn the machine O(n), Of(f), (P)ause, or (Q)uit.");
 
 var isDone = false;
