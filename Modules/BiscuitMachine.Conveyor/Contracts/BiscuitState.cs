@@ -16,9 +16,17 @@ public enum BiscuitState
     /// <summary>
     /// The biscuit is in the process of being baked. 
     /// </summary>
-    HalfBaked,
+    Underbaked,
     /// <summary>
     /// The biscuit is ready.
     /// </summary>
-    Baked
+    Baked,
+    /// <summary>
+    /// The biscuit is baked too long.
+    /// </summary>
+    Overbaked,
+    /// <summary>
+    /// The biscuit is burnt.
+    /// </summary>
+    Burnt,
 }

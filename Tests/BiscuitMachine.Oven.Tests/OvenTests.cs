@@ -79,7 +79,7 @@ public sealed class OvenTests : IDisposable
         this.app.GetEventHub().Raise(new PulseEvent());
         var biscuit = this.app.GetConveyor().GetBiscuit(0);
         biscuit.Should().NotBeNull("the oven shouldn't move the biscuit");
-        biscuit!.State.Should().Be(BiscuitState.HalfBaked, "the oven is on");
+        biscuit!.State.Should().Be(BiscuitState.Underbaked, "the oven is on");
 
         this.app.GetEventHub().Raise(new PulseEvent());
         biscuit = this.app.GetConveyor().GetBiscuit(0);

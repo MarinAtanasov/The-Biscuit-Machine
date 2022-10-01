@@ -5,11 +5,11 @@ using AppBrix.Modules;
 using BiscuitMachine.Controller;
 using BiscuitMachine.Conveyor.Events;
 using BiscuitMachine.Motor.Events;
+using BiscuitMachine.Oven.Contracts;
 using BiscuitMachine.Oven.Events;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace BiscuitMachine.ConsoleApp;
 
@@ -68,7 +68,11 @@ public sealed class MainModule : MainModuleBase
     {
         if (args.PreviousTemperature < args.CurrentTemperature && !this.App.GetOven().IsHeated)
         {
-            Console.WriteLine($"The oven is heating: {args.PreviousTemperature} C -> {args.CurrentTemperature} C");
+            Console.WriteLine($"The oven is heating up: {args.PreviousTemperature} C -> {args.CurrentTemperature} C");
+        }
+        else if (args.PreviousTemperature > args.CurrentTemperature && this.App.GetOven().State == OvenState.Off)
+        {
+            Console.WriteLine($"The oven is cooling down: {args.PreviousTemperature} C -> {args.CurrentTemperature} C");
         }
     }
 
@@ -77,7 +81,7 @@ public sealed class MainModule : MainModuleBase
         var conveyor = this.App.GetConveyor();
         var biscuits = Enumerable.Range(0, conveyor.Length)
             .Select(x => conveyor.GetBiscuit(x)?.State.ToString() ?? string.Empty);
-        var belt = string.Join(" | ", biscuits.Select(x => $"{x,9}"));
+        var belt = string.Join(" | ", biscuits.Select(x => $"{x,10}"));
         Console.WriteLine($"Oven temperature: {this.App.GetOven().Temperature} C | Conveyor: {belt}");
     }
     #endregion
