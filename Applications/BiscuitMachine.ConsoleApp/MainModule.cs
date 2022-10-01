@@ -33,6 +33,8 @@ public sealed class MainModule : MainModuleBase
 
     protected override void Initialize(IInitializeContext context)
     {
+        this.biscuits = 0;
+
         this.App.GetEventHub().Subscribe<BiscuitReadyEvent>(BiscuitReadyEvent);
         this.App.GetEventHub().Subscribe<OvenHeatedEvent>(OvenHeatedEvent);
         this.App.GetEventHub().Subscribe<OvenTemperatureChangedEvent>(OvenTemperatureChangedEvent);
@@ -45,13 +47,16 @@ public sealed class MainModule : MainModuleBase
         this.App.GetEventHub().Unsubscribe<OvenHeatedEvent>(OvenHeatedEvent);
         this.App.GetEventHub().Unsubscribe<OvenTemperatureChangedEvent>(OvenTemperatureChangedEvent);
         this.App.GetEventHub().Unsubscribe<PulseEvent>(PulseEvent);
+
+        this.biscuits = 0;
     }
     #endregion
 
     #region Private methods
     private void BiscuitReadyEvent(BiscuitReadyEvent args)
     {
-        Console.WriteLine($"Biscuit is ready. State: {args.Biscuit.State}");
+        this.biscuits++;
+        Console.WriteLine($"Biscuit is ready. State: {args.Biscuit.State} | Total: {this.biscuits}");
     }
 
     private void OvenHeatedEvent(OvenHeatedEvent _)
@@ -75,5 +80,9 @@ public sealed class MainModule : MainModuleBase
         var belt = string.Join(" | ", biscuits.Select(x => $"{x,9}"));
         Console.WriteLine($"Oven temperature: {this.App.GetOven().Temperature} C | Conveyor: {belt}");
     }
+    #endregion
+
+    #region Private fields and constants
+    private int biscuits;
     #endregion
 }
