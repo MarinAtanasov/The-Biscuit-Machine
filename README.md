@@ -2,7 +2,7 @@
 
 This repository requires [.NET SDK version 6.0.401](https://dotnet.microsoft.com/en-us/download/dotnet/6.0).
 
-To start the BiscuitMachine™, start BiscuitMachine.ConsoleApp.
+To start The Biscuit Machine, start BiscuitMachine.ConsoleApp. By using `dotnet run`.
 
 ## Operation
 - When switched on, the machine must wait for the  oven to warm up before starting the conveyor belt.
