@@ -4,6 +4,7 @@ using BiscuitMachine.Controller.Contracts;
 using BiscuitMachine.Controller.Services;
 using BiscuitMachine.Motor.Events;
 using BiscuitMachine.Oven.Events;
+using System;
 
 namespace BiscuitMachine.Controller.Impl;
 
@@ -40,6 +41,9 @@ internal sealed class DefaultController : IApplicationLifecycle, IController
         if (this.State == ControllerState.Pause)
             return;
 
+        if (this.State == ControllerState.Off && this.app.GetConveyor().HasBiscuits)
+            throw new InvalidOperationException("Cannot switch from off state if the conveyor has biscuits on it.");
+
         this.State = ControllerState.Pause;
         this.app.GetExtruder().TurnOff();
         this.app.GetOven().TurnOn();
@@ -61,6 +65,9 @@ internal sealed class DefaultController : IApplicationLifecycle, IController
     {
         if (this.State == ControllerState.On)
             return;
+
+        if (this.State == ControllerState.Off && this.app.GetConveyor().HasBiscuits)
+            throw new InvalidOperationException("Cannot switch from off state if the conveyor has biscuits on it.");
 
         this.State = ControllerState.On;
         if (this.app.GetOven().IsHeated)

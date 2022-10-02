@@ -36,6 +36,14 @@ internal sealed class DefaultConveyor : IApplicationLifecycle, IConveyor
         this.belt[0] = new Biscuit();
     }
 
+    public void Clear()
+    {
+        for (var i = 0; i < this.belt.Length; i++)
+        {
+            this.belt[i] = null;
+        }
+    }
+
     public Biscuit? GetBiscuit(int index) => this.belt[index];
 
     public void Move()

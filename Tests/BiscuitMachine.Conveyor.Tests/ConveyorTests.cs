@@ -128,6 +128,17 @@ public sealed class ConveyorTests : IDisposable
     {
         this.app.GetConveyor().GetBiscuit(0).Should().BeNull("no biscuit have been added");
     }
+
+    [Fact]
+    public void TestClearConveyor()
+    {
+        var conveyor = this.app.GetConveyor();
+        conveyor.AddBiscuit();
+
+        conveyor.Clear();
+
+        conveyor.HasBiscuits.Should().BeFalse("there should be no biscuits after the conveyor is cleared");
+    }
     #endregion
 
     #region Private fields and constants

@@ -21,6 +21,11 @@ public interface IConveyor
     /// Adds a biscuit to the conveyor belt.
     /// </summary>
     void AddBiscuit();
+
+    /// <summary>
+    /// Clears all the biscuits from the conveyor.
+    /// </summary>
+    void Clear();
     
     /// <summary>
     /// Gets the biscuit that is on the conveyor at a given index.

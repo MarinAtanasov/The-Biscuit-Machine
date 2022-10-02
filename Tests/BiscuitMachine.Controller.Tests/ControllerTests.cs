@@ -82,6 +82,28 @@ public sealed class ControllerTests : IDisposable
     }
 
     [Fact]
+    public void TestControllerTurnOnNonEmptyConveyor()
+    {
+        var controller = this.app.GetController();
+        this.app.GetConveyor().AddBiscuit();
+
+        var action = () => controller.TurnOn();
+
+        action.Should().Throw<InvalidOperationException>("cannot switch from off state if the conveyor has biscuits on it");
+    }
+
+    [Fact]
+    public void TestControllerPauseNonEmptyConveyor()
+    {
+        var controller = this.app.GetController();
+        this.app.GetConveyor().AddBiscuit();
+
+        var action = () => controller.Pause();
+
+        action.Should().Throw<InvalidOperationException>("cannot switch from off state if the conveyor has biscuits on it");
+    }
+
+    [Fact]
     public void TestControllerTurnOnInitially()
     {
         var controller = this.app.GetController();
