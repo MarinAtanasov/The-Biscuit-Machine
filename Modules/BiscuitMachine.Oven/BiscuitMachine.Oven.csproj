@@ -12,7 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="AppBrix.Events.Schedule.Timer" Version="0.34.0" />
+        <PackageReference Include="AppBrix.Events.Schedule.Timer" Version="0.36.0" />
     </ItemGroup>
 
 </Project>

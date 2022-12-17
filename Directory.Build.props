@@ -11,7 +11,7 @@
         <IncludeSymbols>true</IncludeSymbols>
         <Nullable>enable</Nullable>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-        <TargetFramework>net6.0</TargetFramework>
+        <TargetFramework>net7.0</TargetFramework>
         <Version>0.1.0</Version>
     </PropertyGroup>
 

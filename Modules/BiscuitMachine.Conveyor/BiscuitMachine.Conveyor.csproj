@@ -8,8 +8,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="AppBrix.Container" Version="0.34.0" />
-      <PackageReference Include="AppBrix.Events" Version="0.34.0" />
+      <PackageReference Include="AppBrix.Container" Version="0.36.0" />
+      <PackageReference Include="AppBrix.Events" Version="0.36.0" />
     </ItemGroup>
 
 </Project>
